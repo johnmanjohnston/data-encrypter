@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Common.h"
+#include "../headers/Common.h"
 
 int main() {
     std::cout << "Main.cpp working";
