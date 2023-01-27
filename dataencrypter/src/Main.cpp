@@ -1,19 +1,20 @@
+// C++, OH MY FREAKIN GOODNESS I SWEAR, YOU MAKE ME WANT TO BANG MY HEAD AGAINST A WALL AND WISH FOR THE SWEET RELEASE OF DEATH
+
+// #includes
 #include <iostream>
 #include <string>
 #include <filesystem>
 #include <iostream>
-#include "../headers/Common.h"
+#include "../headers/Utils.h"
+#include "../headers/Crypt.h"
 
-using namespace std;
-
-// Define globals
-std::string RelativeDir;
 int main() {
     std::cout << "Main.cpp working";
-    std::cin >> RelativeDir;
+    std::cin >> TargetCryptionDir;
 
-    for (const auto & entry : filesystem::directory_iterator(RelativeDir))
+    for (const auto & entry : std::filesystem::directory_iterator(TargetCryptionDir)) {
         std::cout << entry.path() << std::endl;
+    }
     
     return 0;
 }
