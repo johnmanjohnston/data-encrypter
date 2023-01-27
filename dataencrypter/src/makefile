@@ -1,4 +1,3 @@
-# g++ -std=c++17 Main.cpp -lstdc++ -o main.out
 CC = g++
 CFLAGS = -lstdc++ -std=c++17
 TARGET = dataencrypter

@@ -1,5 +1,4 @@
 #include <string>
-std::string GetKey();
-     bool   DirectoryExists(std::string RelativePath);
 
-std::string TargetCryptionDir;
+bool DirectoryExists(std::string relativePath);
+bool ValidatedKey(std::string key);
