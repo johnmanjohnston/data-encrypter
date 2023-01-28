@@ -21,6 +21,7 @@ inline bool strEndsWith(std::string const &orgStr, std::string const &suffix) {
 int main() {
     std::cin >> RelativePath;
 
+    /*
     DIR* dir;
     struct dirent* ent;
 
@@ -43,6 +44,10 @@ int main() {
         std::cout << "Couldn't open dir :/\n";
         return 1;
     }
+    */
+
+   CryptHandler ch;
+   ch.Encrypt(RelativePath, "demo-key");
 
     return 0;
 }   
