@@ -13,3 +13,4 @@ crypt.o: Crypt.cpp
 
 clean:
 	rm main.o crypt.o
+	mv ./main ../bin/

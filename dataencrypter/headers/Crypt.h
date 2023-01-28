@@ -10,6 +10,6 @@
             void Decrypt(std::string encRaw, std::string key);
 
         private:
-            void GetDecryptedData(std::string encRaw,    std::string key);
             void GetEncryptedData(std::string raw,    std::string key);
+            void GetDecryptedData(std::string encRaw, std::string key);
     };
