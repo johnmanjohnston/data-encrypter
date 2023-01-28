@@ -3,10 +3,20 @@
 #include <iostream>
 #include <dirent.h>
 #include <fstream>
+#include <string_view>
+#include "../headers/Crypt.h"
 
 // Definitions 
 std::string RelativePath;
 std::string CryptionKey;
+
+inline bool strEndsWith(std::string const &orgStr, std::string const &suffix) {
+    // If suffix size > original string, it isn't possible to have the orginal string contain the suffix
+    if (suffix.size() > orgStr.size()) { return false; }
+
+    bool ends = std::equal(suffix.rbegin(), suffix.rend(), orgStr.rbegin());
+    return ends;
+}
 
 int main() {
     std::cin >> RelativePath;
@@ -17,10 +27,9 @@ int main() {
     if ((dir = opendir(RelativePath.c_str())) != NULL) {
         while ((ent = readdir(dir)) != NULL) {
             if (ent->d_type == DT_REG){ 
-                // Ignore .crypt-validation.txt
-                std::cout << ent->d_name << std::endl;
-
                 std::string fPath = RelativePath + "/" + ent->d_name;
+
+                if (strEndsWith(fPath, ".crypt-validation.txt")) { continue; }
 
                 // Create stream
                 std::ofstream wfstream(fPath);
@@ -36,4 +45,4 @@ int main() {
     }
 
     return 0;
-}
+}   
