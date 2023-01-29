@@ -1,0 +1,1 @@
+/usr/bin/c++   -lstdc++ -std=c++17   CMakeFiles/dataencrypter.dir/Main.cpp.o CMakeFiles/dataencrypter.dir/Crypt.cpp.o CMakeFiles/dataencrypter.dir/Utils.c.o  -o dataencrypter 

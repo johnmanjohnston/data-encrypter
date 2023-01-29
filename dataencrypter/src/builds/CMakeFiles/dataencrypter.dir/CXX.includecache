@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/workspaces/data-encrypter/dataencrypter/headers/Crypt.h
+string
+-
+fstream
+-
+dirent.h
+-
+
+/workspaces/data-encrypter/dataencrypter/src/Crypt.cpp
+../headers/Crypt.h
+/workspaces/data-encrypter/dataencrypter/headers/Crypt.h
+fstream
+-
+dirent.h
+-
+iostream
+-
+
+/workspaces/data-encrypter/dataencrypter/src/Main.cpp
+iostream
+-
+dirent.h
+-
+fstream
+-
+string_view
+-
+../headers/Crypt.h
+/workspaces/data-encrypter/dataencrypter/headers/Crypt.h
+

@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/workspaces/data-encrypter/dataencrypter/headers/Utils.h
+stdbool.h
+-
+
+/workspaces/data-encrypter/dataencrypter/src/Utils.c
+string.h
+-
+stdbool.h
+-
+../headers/Utils.h
+/workspaces/data-encrypter/dataencrypter/headers/Utils.h
+
