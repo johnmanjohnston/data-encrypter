@@ -75,11 +75,12 @@ void CryptHandler::Encrypt(
 std::string CryptHandler::GetDecryptedData(
     std::string encRaw, 
     std::string key) {
-
+        return "";
 }
 
 std::string CryptHandler::GetEncryptedData(
     std::string raw, 
     std::string key) {
+        return "";
 
 }
