@@ -56,5 +56,6 @@
         "unistd.h": "c",
         "stdbool.h": "c",
         "stdio.h": "c"
-    }
+    },
+    "cmake.sourceDirectory": "${workspaceFolder}/dataencrypter/src"
 }
