@@ -1,3 +1,0 @@
-/workspaces/data-encrypter/dataencrypter/src/builds/CMakeFiles/rebuild_cache.dir
-/workspaces/data-encrypter/dataencrypter/src/builds/CMakeFiles/edit_cache.dir
-/workspaces/data-encrypter/dataencrypter/src/builds/CMakeFiles/dataencrypter.dir
