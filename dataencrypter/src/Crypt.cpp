@@ -16,6 +16,34 @@ void CryptHandler::Decrypt(
     std::string relPath, 
     std::string key) {
 
+    DIR* dir;
+    struct dirent* ent;
+    bool validKey = false;
+
+    if ((dir = opendir(relPath.c_str())) != NULL) {
+        while ((ent = readdir(dir)) != NULL) {
+            if (ent->d_type == DT_REG){ 
+                std::string fPath = relPath + "/" + ent->d_name;
+
+                if (strEndsWith(fPath, ".crypt-validation.txt")) { 
+                    // Validate key
+                    continue;
+                }
+
+                if (validKey) {
+                    std::ofstream wfstream(fPath);
+                    wfstream << key;
+                    wfstream.close();
+                } else {
+                    std::cout << "Invalid key";
+                }
+            }
+        }
+
+        closedir(dir);
+    } else {
+        std::cout << "Couldn't open dir :/\n";
+    }
 }
 
 void CryptHandler::Encrypt(
@@ -32,9 +60,8 @@ void CryptHandler::Encrypt(
 
                 if (strEndsWith(fPath, ".crypt-validation.txt")) { continue; }
 
-                // Create stream
                 std::ofstream wfstream(fPath);
-                wfstream << "Greetings from Main.cpp!";
+                wfstream << key;
                 wfstream.close();
             }
         }
@@ -45,13 +72,13 @@ void CryptHandler::Encrypt(
     }
 }
 
-void CryptHandler::GetDecryptedData(
+std::string CryptHandler::GetDecryptedData(
     std::string encRaw, 
     std::string key) {
 
 }
 
-void CryptHandler::GetEncryptedData(
+std::string CryptHandler::GetEncryptedData(
     std::string raw, 
     std::string key) {
 
