@@ -19,35 +19,14 @@ inline bool strEndsWith(std::string const &orgStr, std::string const &suffix) {
 }
 
 int main() {
+    std::cout << "Enter the path of the files of the directory you want to crypt: ";
     std::cin >> RelativePath;
 
-    /*
-    DIR* dir;
-    struct dirent* ent;
+    std::cout << "Enter your cryption key: ";
+    std::cin >> CryptionKey;
 
-    if ((dir = opendir(RelativePath.c_str())) != NULL) {
-        while ((ent = readdir(dir)) != NULL) {
-            if (ent->d_type == DT_REG){ 
-                std::string fPath = RelativePath + "/" + ent->d_name;
-
-                if (strEndsWith(fPath, ".crypt-validation.txt")) { continue; }
-
-                // Create stream
-                std::ofstream wfstream(fPath);
-                wfstream << "Greetings from Main.cpp!";
-                wfstream.close();
-            }
-        }
-
-        closedir(dir);
-    } else {
-        std::cout << "Couldn't open dir :/\n";
-        return 1;
-    }
-    */
-
-   CryptHandler ch;
-   ch.Encrypt(RelativePath, "demo-key");
+    CryptHandler ch;
+    ch.Encrypt(RelativePath, "demo-key");
 
     return 0;
 }   
