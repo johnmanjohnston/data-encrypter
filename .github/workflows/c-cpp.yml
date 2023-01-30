@@ -17,5 +17,7 @@ jobs:
       run: cmake dataencrypter/src/
 
     - name: goto-makefile
-      run: ls ./*/*
+      # run: ls ./*/*
+      run: cd dataencrypter/src
+      
 
