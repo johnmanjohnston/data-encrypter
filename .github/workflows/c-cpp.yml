@@ -16,13 +16,8 @@ jobs:
     - name: goto-src
       run: cd dataencrypter/src/
       
-    - name: create-build-dir
-      run: mkdir build\ cd build
-
-    - name: runcmake
-      run: cmake ..
-
-    - name: run-makefile
-      run: cd make
+    - name: run-cmake
+      run: cmake .
       
-
+    - name: run
+      run: make
