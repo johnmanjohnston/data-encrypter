@@ -14,8 +14,8 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: runcmake
-      run: ls
+      run: cmake dataencrypter/src/
 
     - name: make
-      run: make
+      run: make dataencrypter/src/build
 
