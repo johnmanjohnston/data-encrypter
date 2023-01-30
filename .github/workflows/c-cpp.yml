@@ -1,0 +1,23 @@
+name: data-encrypter-acts
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: goto-src
+      run: cd dataencrypter/src/
+      
+    - name: run-cmake
+      run: cmake dataencrypter/src/
+      
+    - name: run
+      run: make
