@@ -1,16 +1,21 @@
-#include "../headers/Crypt.h"
+#include <iostream>
 #include <fstream>
 #include <dirent.h>
-#include <iostream>
+#include "../headers/Crypt.hpp"
+#include "../headers/Utilscp.hpp"
 
-// Move this to a seperate file later:
-inline bool strEndsWith(std::string const &orgStr, std::string const &suffix) {
-    // If suffix size > original string, it isn't possible to have the orginal string contain the suffix
-    if (suffix.size() > orgStr.size()) { return false; }
+// bool StrEndsWith(const std::string& orgstr, const std::string& suffix) {
+//     size_t lStr = orgstr.length();
+//     size_t lSuffix = suffix.length();
 
-    bool ends = std::equal(suffix.rbegin(), suffix.rend(), orgStr.rbegin());
-    return ends;
-}
+//     // if suffix is larger than string we desire to compare, it's not possible to return true  
+//     // as the orginal string can't end with a string larger than itself
+//     if (lSuffix > lStr) return false; 
+
+//     return orgstr.compare(lStr - lSuffix, lSuffix, suffix) == 0;
+// }
+
+std::string CryptValidationFilename = ".crypt-validation.txt";
 
 void CryptHandler::Decrypt(
     std::string relPath, 
@@ -25,7 +30,7 @@ void CryptHandler::Decrypt(
             if (ent->d_type == DT_REG){ 
                 std::string fPath = relPath + "/" + ent->d_name;
 
-                if (strEndsWith(fPath, ".crypt-validation.txt")) { 
+                if (StrEndsWith(fPath, CryptValidationFilename)) { 
                     // Validate key
                     continue;
                 }
@@ -58,7 +63,7 @@ void CryptHandler::Encrypt(
             if (ent->d_type == DT_REG){ 
                 std::string fPath = relPath + "/" + ent->d_name;
 
-                if (strEndsWith(fPath, ".crypt-validation.txt")) { continue; }
+                if (StrEndsWith(fPath, CryptValidationFilename)) { continue; }
 
                 std::ofstream wfstream(fPath);
                 wfstream << key;

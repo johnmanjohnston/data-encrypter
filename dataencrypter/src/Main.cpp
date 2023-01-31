@@ -4,7 +4,7 @@
 #include <dirent.h>
 #include <fstream>
 #include <string_view>
-#include "../headers/Crypt.h"
+#include "../headers/Crypt.hpp"
 
 // Definitions 
 std::string RelativePath;
