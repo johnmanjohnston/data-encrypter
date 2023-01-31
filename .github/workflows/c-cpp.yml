@@ -15,9 +15,9 @@ jobs:
 
     - name: goto-src
       run: cd dataencrypter/src/
-
+      
     - name: run-cmake
-      run: cmake
+      run: cmake dataencrypter/src/
       
     - name: run
       run: make
