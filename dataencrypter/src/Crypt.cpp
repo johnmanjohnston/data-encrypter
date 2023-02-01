@@ -66,15 +66,10 @@ void CryptHandler::Encrypt(
     }
 }
 
-std::string CryptHandler::GetDecryptedData(
-    std::string encRaw, 
-    std::string key) {
-        return "";
+void WriteEncryptedData(std::string relPath, std::string key) {
+
 }
 
-std::string CryptHandler::GetEncryptedData(
-    std::string raw, 
-    std::string key) {
-        return "";
-
+void WriteDecryptedData(std::string relPath, std::string key) {
+    
 }
