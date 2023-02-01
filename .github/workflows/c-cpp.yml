@@ -13,11 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: goto-src
+    - name: cd-src
       run: cd dataencrypter/src/
       
     - name: run-cmake
       run: cmake dataencrypter/src/
       
-    - name: run
+    - name: run-makefile
       run: make
