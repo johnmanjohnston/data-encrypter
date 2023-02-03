@@ -1,8 +1,6 @@
 #pragma once
 
 #include <string>
-#include <fstream>
-#include <dirent.h>
 
     class CryptHandler {
 
