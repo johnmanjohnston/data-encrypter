@@ -5,5 +5,5 @@ bool StrEndsWith(const std::string& orgstr, const std::string& suffix) {
     // if suffix is larger than string we desire to compare, it's not possible to return true  
     // as the orginal string can't end with a string larger than itself
     if (suffix.length() > orgstr.length()) return false; 
-    return orgstr.compare(lStr - lSuffix, lSuffix, suffix) == 0;
+    return orgstr.compare(orgstr.length() - suffix.legnth(), suffix.length(), suffix) == 0;
 }
