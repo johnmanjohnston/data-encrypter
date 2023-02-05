@@ -82,11 +82,14 @@ void CryptHandler::WriteEncryptedData(
 
     std::cout << "relfPath: " << relfPath;
 
+    // openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc
+    // openssl aes-256-cbc -d -a -pbkdf2 -in secrets.txt.enc -out secrets.txt.new
+
     std::string runCommand;
-    runCommand += "openssl enc -a -aes-256-cbc -salt -in ";
+    runCommand += "openssl aes-256-cbc -a -salt -pbkdf2 -in ";
     runCommand += relfPath;
     runCommand += " -out ";
-    runCommand += relfPath;
+    runCommand += relfPath + ".enc";
     runCommand += " -k ";
     runCommand += key;
     system(runCommand.c_str());
@@ -99,10 +102,10 @@ void CryptHandler::WriteDecryptedData(
     std::cout << "relfPath: " << relfPath;
 
     std::string runCommand;
-    runCommand += "openssl enc -a -d -aes-256-cbc -salt -in ";
-    runCommand += relfPath;
+    runCommand += "openssl aes-256-cbc -d -a -pbkdf2 -in ";
+    runCommand += relfPath + ".enc";
     runCommand += " -out ";
-    runCommand += relfPath + ".decrypted.txt";
+    runCommand += relfPath + ".decrypted.new";
     runCommand += " -k ";
     runCommand += key;
     system(runCommand.c_str());;
