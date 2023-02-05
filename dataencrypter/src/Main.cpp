@@ -18,7 +18,14 @@ int main() {
     std::cin >> CryptionKey;
 
     CryptHandler ch;
-    ch.Encrypt(RelativePath, "demo-key");
+
+    std::string cryptType;
+    std::cin >> cryptType;
+
+    if (cryptType == "en")
+        {ch.Encrypt(RelativePath, CryptionKey);}
+    else 
+        {ch.Decrypt(RelativePath, CryptionKey);}
 
     return 0;
 }   
