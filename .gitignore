@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Custom
+*.enc
+*.decrypted
+testbuild
+temp.txt
